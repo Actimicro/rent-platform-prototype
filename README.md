@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RENT OS UI Shell Prototype
 
-## Getting Started
+Next.js App Router + Tailwind prototype with a premium SaaS-style landing and role-based internal dashboard shell.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What is implemented
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Landing page (`/`) with:
+  - hero section,
+  - hot offers ticker (marquee),
+  - academy teasers with circular video placeholders,
+  - community cards (forum / roadmap / changelog).
+- Internal shell (`/(app)` group) with:
+  - sidebar,
+  - topbar,
+  - demo role switcher.
+- Role dashboard (`/dashboard`) with role-adapted widgets.
+- Mock data source: `src/shared/mock/demoData.ts`.
 
-## Learn More
+## Demo roles
 
-To learn more about Next.js, take a look at the following resources:
+Role switcher supports:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `guest`
+- `tenant`
+- `owner`
+- `realtor`
+- `manager`
+- `admin`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can switch role from the topbar selector or by URL query:
 
-## Deploy on Vercel
+- `http://localhost:3000/dashboard?role=tenant`
+- `http://localhost:3000/dashboard?role=admin`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Sidebar items and dashboard widgets update according to role.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Production check
+
+```bash
+npm run build
+```
+
+Build must complete successfully.
+
+## Vercel
+
+Deployment URL (placeholder): `https://your-vercel-project-url.vercel.app`
